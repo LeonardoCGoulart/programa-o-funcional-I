@@ -8,7 +8,9 @@ const contentOfSource = contentOfTag(R.__, 'source');
 const contentOfAdded = contentOfTag(R.__, 'added');
 const contentOfUpdated = contentOfTag(R.__, 'lastupdated');
 const contentOfID = contentOfTag(R.__, 'id');
-const getGitHubProject = xmlNode => contentOfSource(xmlNode).replace('https://github.com/', '');
+const getGitHubProject = xmlNode => contentOfSource(xmlNode).replace('https://github.com/', '')+
+"\n"+contentOfAdded(xmlNode)+
+"\n"+contentOfUpdated(xmlNode);
 
 const elementsToArray = nodes => {
     const arr = [];
